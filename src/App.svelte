@@ -11,13 +11,21 @@
 
   let selectedWeek = 0;
 
-  if (window.location.hash) {
-    const hash = window.location.hash;
-    selectedWeek = parseInt(hash.split("#week-")[1]);
-    if (selectedWeek > 6 || !selectedWeek) selectedWeek = 0;
+  const urlParams = new URLSearchParams(window.location.search);
+
+  if (urlParams.has("week")) {
+    const week = urlParams.get("week");
+    selectedWeek = parseInt(week);
   }
 
-  $: window.location.hash = selectedWeek ? `week-${selectedWeek}` : "";
+  $: setSearchParams(selectedWeek);
+
+  function setSearchParams(week) {
+    if (week > 6 || week < 0 || !week) {
+      week = 0;
+    }
+    window.history.replaceState(null, null, `?week=${+week}`);
+  }
 </script>
 
 <Header bind:selectedWeek />
