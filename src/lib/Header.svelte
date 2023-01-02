@@ -8,7 +8,7 @@
   <nav>
     {#if !selectedWeek}
       <h1>
-        <img src="/threlte.png" alt="Threlte Logo" />
+        <img src="./threlte.png" alt="Threlte Logo" />
         <span>
           SRP - Threlte
           <h2>Sjors Wijsman</h2>
@@ -35,7 +35,7 @@
         rel="noreferrer"
       >
         Lees hier het volledige verslag
-        <img src="/icons/external-link.svg" alt="" />
+        <img src="./icons/external-link.svg" alt="" />
       </a>
     {/if}
   </nav>

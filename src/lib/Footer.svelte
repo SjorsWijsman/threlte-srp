@@ -39,9 +39,9 @@
     rel="noreferrer"
     class="button"
   >
-    <img src="/threlte.png" alt="Threlte Logo" />
+    <img src="./threlte.png" alt="Threlte Logo" />
     {links[selectedWeek - 1]?.title}
-    <img src="/icons/external-link.svg" alt="" />
+    <img src="./icons/external-link.svg" alt="" />
   </a>
 </footer>
 
