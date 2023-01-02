@@ -7,6 +7,7 @@
 </script>
 
 <Canvas>
+  <!-- Camera -->
   <T.PerspectiveCamera makeDefault position={[10, 10, 10]} fov={24}>
     <OrbitControls
       maxPolarAngle={degToRad(80)}
@@ -15,6 +16,7 @@
     />
   </T.PerspectiveCamera>
 
+  <!-- Lights -->
   <T.DirectionalLight castShadow position={[3, 10, 10]} />
   <T.DirectionalLight position={[-3, 10, -10]} intensity={0.2} />
   <T.AmbientLight intensity={0.2} />
