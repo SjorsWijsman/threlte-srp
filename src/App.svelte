@@ -10,6 +10,14 @@
   import SceneWeek6 from "$lib/week-6/Scene.svelte";
 
   let selectedWeek = 0;
+
+  if (window.location.hash) {
+    const hash = window.location.hash;
+    selectedWeek = parseInt(hash.split("#week-")[1]);
+    if (selectedWeek > 6 || !selectedWeek) selectedWeek = 0;
+  }
+
+  $: window.location.hash = selectedWeek ? `week-${selectedWeek}` : "";
 </script>
 
 <Header bind:selectedWeek />
