@@ -7,6 +7,7 @@ import { preprocessThrelte } from "@threlte/preprocess";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/threlte-srp/",
   plugins: [
     svelte({
       preprocess: seqPreprocessor([preprocess(), preprocessThrelte()]),
