@@ -1,7 +1,6 @@
 <script>
+  import { week } from "$store";
   import { fade, slide } from "svelte/transition";
-
-  export let selectedWeek;
 
   const links = [
     {
@@ -34,13 +33,13 @@
 <footer transition:slide={{ duration: 500 }}>
   <a
     transition:fade={{ duration: 500 }}
-    href={links[selectedWeek - 1]?.link}
+    href={links[$week - 1]?.link}
     target="_blank"
     rel="noreferrer"
     class="button"
   >
     <img src="./threlte.png" alt="Threlte Logo" />
-    {links[selectedWeek - 1]?.title}
+    {links[$week - 1]?.title}
     <img src="./icons/external-link.svg" alt="" />
   </a>
 </footer>

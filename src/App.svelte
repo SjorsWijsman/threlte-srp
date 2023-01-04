@@ -1,74 +1,80 @@
 <script>
-  import { fade } from "svelte/transition";
   import Header from "$lib/Header.svelte";
   import Footer from "$lib/Footer.svelte";
+  import SceneContainer from "$lib/SceneContainer.svelte";
+  import SceneToggle from "$lib/SceneToggle.svelte";
   import SceneWeek1 from "$lib/week-1/Scene.svelte";
   import SceneWeek2 from "$lib/week-2/Scene.svelte";
-  import SceneWeek3 from "$lib/week-3/Scene.svelte";
+  import SceneWeek3_1 from "$lib/week-3/Scene1.svelte";
+  import SceneWeek3_2 from "$lib/week-3/Scene2.svelte";
   import SceneWeek4 from "$lib/week-4/Scene.svelte";
   import SceneWeek5 from "$lib/week-5/Scene.svelte";
   import SceneWeek6 from "$lib/week-6/Scene.svelte";
+  import { week, scene } from "$store";
 
-  let selectedWeek = 0;
+  scene.subscribe(() => {
+    setParams();
+  });
 
-  const urlParams = new URLSearchParams(window.location.search);
-
-  if (urlParams.has("week")) {
-    const week = urlParams.get("week");
-    selectedWeek = parseInt(week);
-  }
-
-  $: setSearchParams(selectedWeek);
-
-  function setSearchParams(week) {
-    if (week > 6 || week < 0 || !week) {
-      week = 0;
+  week.subscribe((value) => {
+    if (value > 6 || value < 0 || !value) {
+      value = 0;
     }
-    window.history.replaceState(null, null, `?week=${+week}`);
+
+    setParams();
+  });
+
+  function setParams() {
+    let newParams = "?";
+    let paramList = [];
+
+    if ($week !== 0) {
+      paramList.push(`week=${+$week}`);
+    }
+
+    if ($scene !== 0) {
+      paramList.push(`scene=${+$scene}`);
+    }
+
+    window.history.replaceState(null, null, newParams + paramList.join("&"));
   }
 </script>
 
-<Header bind:selectedWeek />
-{#if selectedWeek}
+<Header />
+{#if $week}
   <main>
-    {#if selectedWeek == 1}
-      <div transition:fade={{ duration: 500 }}>
+    {#if $week == 1}
+      <SceneContainer>
         <SceneWeek1 />
-      </div>
-    {:else if selectedWeek == 2}
-      <div transition:fade={{ duration: 500 }}>
+      </SceneContainer>
+    {:else if $week == 2}
+      <SceneContainer>
         <SceneWeek2 />
-      </div>
-    {:else if selectedWeek == 3}
-      <div transition:fade={{ duration: 500 }}>
-        <SceneWeek3 />
-      </div>
-    {:else if selectedWeek == 4}
-      <div transition:fade={{ duration: 500 }}>
+      </SceneContainer>
+    {:else if $week == 3}
+      <SceneContainer>
+        <SceneToggle components={[SceneWeek3_1, SceneWeek3_2]} />
+      </SceneContainer>
+    {:else if $week == 4}
+      <SceneContainer>
         <SceneWeek4 />
-      </div>
-    {:else if selectedWeek == 5}
-      <div transition:fade={{ duration: 500 }}>
+      </SceneContainer>
+    {:else if $week == 5}
+      <SceneContainer>
         <SceneWeek5 />
-      </div>
-    {:else if selectedWeek == 6}
-      <div transition:fade={{ duration: 500 }}>
+      </SceneContainer>
+    {:else if $week == 6}
+      <SceneContainer>
         <SceneWeek6 />
-      </div>
+      </SceneContainer>
     {/if}
   </main>
-  <Footer bind:selectedWeek />
+  <Footer />
 {/if}
 
 <style>
   main {
     height: 100vh;
-    width: 100%;
-  }
-
-  div {
-    position: absolute;
-    height: 100%;
     width: 100%;
   }
 </style>

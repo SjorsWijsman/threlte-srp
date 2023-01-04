@@ -1,12 +1,11 @@
 <script>
+  import { week, scene } from "$store";
   import { flip } from "svelte/animate";
-
-  export let selectedWeek;
 </script>
 
-<header class:minimize={selectedWeek}>
+<header class:minimize={$week}>
   <nav>
-    {#if !selectedWeek}
+    {#if !$week}
       <h1>
         <img src="./threlte.png" alt="Threlte Logo" />
         <span>
@@ -16,19 +15,22 @@
       </h1>
       <h3>Weken</h3>
     {/if}
-    {#if selectedWeek !== 0}
-      <button on:click={() => (selectedWeek = 0)}>Home</button>
+    {#if $week !== 0}
+      <button on:click={() => ($week = 0)}>Home</button>
     {/if}
     {#each Array(6) as _, index (index)}
       <button
-        on:click={() => (selectedWeek = index + 1)}
-        class:active={selectedWeek === index + 1}
+        on:click={() => {
+          $week = index + 1;
+          $scene = 0;
+        }}
+        class:active={$week === index + 1}
         animate:flip
       >
         Week <span>{index + 1}</span>
       </button>
     {/each}
-    {#if !selectedWeek}
+    {#if !$week}
       <a
         href="https://operatie-gekkigeit.notion.site/SRP-Threlte-0302c5b6331f4343abed1df12a298e4f"
         target="_blank"

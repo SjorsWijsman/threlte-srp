@@ -1,15 +1,26 @@
 <script>
   import { Canvas, T } from "@threlte/core";
 
-  let turn = 0;
+  let turnX = 0;
+  let turnY = 0;
 
-  function animate() {
-    turn += 0.01;
-    requestAnimationFrame(animate);
+  function turnCube(event) {
+    if (event.key === "s") {
+      turnX += 0.1;
+    }
+    if (event.key === "w") {
+      turnX -= 0.1;
+    }
+    if (event.key === "d") {
+      turnY += 0.1;
+    }
+    if (event.key === "a") {
+      turnY -= 0.1;
+    }
   }
-  animate();
 </script>
 
+<svelte:window on:keydown={turnCube} />
 <Canvas>
   <!-- Camera -->
   <T.PerspectiveCamera
@@ -26,7 +37,7 @@
   <T.AmbientLight intensity={0.2} />
 
   <!-- Cube -->
-  <T.Mesh rotation={[turn, turn, 0]}>
+  <T.Mesh rotation={[turnX, turnY, 0]}>
     <T.BoxGeometry args={[1, 1, 1]} />
     <T.MeshStandardMaterial color="#00ff00" />
   </T.Mesh>

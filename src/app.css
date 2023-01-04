@@ -51,7 +51,7 @@ h3 {
 }
 
 /* Buttons */
-a.button,
+.button,
 button {
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@ button * {
   transition: all 0.3s ease-out;
 }
 
-a.button:hover,
+.button:hover,
 button:hover,
 button.active {
   cursor: pointer;
@@ -79,7 +79,7 @@ button.active {
   color: var(--color-orange);
 }
 
-a.button:hover *,
+.button:hover *,
 button:hover *,
 button.active * {
   color: var(--color-orange);
