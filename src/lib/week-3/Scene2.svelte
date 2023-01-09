@@ -2,8 +2,8 @@
   import { T } from "@threlte/core";
   import { useFrame } from "@threlte/core";
 
-  let turnX = 0;
-  let turnY = 0;
+  let turnX = 0.5;
+  let turnY = 0.5;
   let previousTime = 0;
   let keysPressed = [];
 

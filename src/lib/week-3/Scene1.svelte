@@ -1,8 +1,8 @@
 <script>
   import { T } from "@threlte/core";
 
-  let turnX = 0;
-  let turnY = 0;
+  let turnX = 0.5;
+  let turnY = 0.5;
 
   function turnCube(event) {
     if (event.key === "s") {
