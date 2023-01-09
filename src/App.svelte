@@ -7,6 +7,7 @@
   import SceneWeek2 from "$lib/week-2/Scene.svelte";
   import SceneWeek3_1 from "$lib/week-3/Scene1.svelte";
   import SceneWeek3_2 from "$lib/week-3/Scene2.svelte";
+  import SceneWeek3_3 from "$lib/week-3/Scene3.svelte";
   import SceneWeek4 from "$lib/week-4/Scene.svelte";
   import SceneWeek5 from "$lib/week-5/Scene.svelte";
   import SceneWeek6 from "$lib/week-6/Scene.svelte";
@@ -52,8 +53,8 @@
         <SceneWeek2 />
       </SceneContainer>
     {:else if $week == 3}
-      <SceneContainer>
-        <SceneToggle components={[SceneWeek3_1, SceneWeek3_2]} />
+      <SceneContainer toggle={true}>
+        <SceneToggle components={[SceneWeek3_1, SceneWeek3_2, SceneWeek3_3]} />
       </SceneContainer>
     {:else if $week == 4}
       <SceneContainer>

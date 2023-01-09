@@ -1,5 +1,6 @@
 <script>
   import { scene } from "$store";
+  import { Canvas } from "@threlte/core";
 
   export let components = [];
 
@@ -22,14 +23,16 @@
     </label>
   {/each}
 </form>
-<svelte:component this={selected} />
+<Canvas>
+  <svelte:component this={selected} />
+</Canvas>
 
 <style>
   form {
     position: absolute;
     display: flex;
     flex-direction: row;
-    top: 3rem;
+    bottom: 3.5rem;
     padding: 0.5rem;
   }
 

@@ -12,7 +12,6 @@ if (urlParams.has("week")) {
 if (urlParams.has("scene")) {
   const sceneParam = urlParams.get("scene");
   sceneDefault = parseInt(sceneParam);
-  console.log(sceneDefault);
 }
 
 export const week = writable(weekDefault ?? 0);
