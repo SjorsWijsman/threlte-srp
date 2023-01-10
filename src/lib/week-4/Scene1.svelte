@@ -37,7 +37,7 @@
 
 <!-- Model -->
 <GLTF
-  url="/models/machine_casing_old.gltf"
+  url="models/machine_casing_old.gltf"
   rotation={{ x: turn, y: turn, z: 0 }}
   position={{ y: 1 }}
   castShadow

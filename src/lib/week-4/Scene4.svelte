@@ -63,7 +63,7 @@
 </T.PerspectiveCamera>
 
 <!-- Audio -->
-<Audio source={"/audio/ding.mp3"} bind:play={playAudio} bind:stop={stopAudio} />
+<Audio source={"audio/ding.mp3"} bind:play={playAudio} bind:stop={stopAudio} />
 
 <!-- Lights -->
 <T.DirectionalLight position={[3, 10, 10]} castShadow />
@@ -72,7 +72,7 @@
 
 <!-- Model -->
 <GLTF
-  url="/models/machine_casing.gltf"
+  url="models/machine_casing.gltf"
   position={{ y: 1 + $float }}
   rotation={{ x: turn, y: turn, z: 0 }}
   castShadow

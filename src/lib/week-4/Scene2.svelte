@@ -49,7 +49,7 @@
 
 <!-- Model -->
 <GLTF
-  url="/models/machine_casing.gltf"
+  url="models/machine_casing.gltf"
   position={{ y: 1 + $float }}
   rotation={{ x: turn, y: turn, z: 0 }}
   castShadow
