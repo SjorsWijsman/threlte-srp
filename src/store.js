@@ -16,3 +16,5 @@ if (urlParams.has("scene")) {
 
 export const week = writable(weekDefault ?? 0);
 export const scene = writable(sceneDefault ?? 0);
+
+export const gameState = writable("playing");

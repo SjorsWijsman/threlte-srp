@@ -12,7 +12,9 @@
   import SceneWeek4_2 from "$lib/week-4/Scene2.svelte";
   import SceneWeek4_3 from "$lib/week-4/Scene3.svelte";
   import SceneWeek4_4 from "$lib/week-4/Scene4.svelte";
-  import SceneWeek5 from "$lib/week-5/Scene.svelte";
+  import SceneWeek5_1 from "$lib/week-5/Scene1.svelte";
+  import SceneWeek5_2 from "$lib/week-5/Scene2.svelte";
+  import SceneWeek5_3 from "$lib/week-5/Scene3.svelte";
   import SceneWeek6 from "$lib/week-6/Scene.svelte";
   import { week, scene } from "$store";
 
@@ -66,8 +68,11 @@
         />
       </SceneContainer>
     {:else if $week == 5}
-      <SceneContainer>
-        <SceneWeek5 />
+      <SceneContainer
+        background={"linear-gradient(to bottom, #b7eaff,#ccffff)"}
+        toggle={true}
+      >
+        <SceneToggle components={[SceneWeek5_1, SceneWeek5_2, SceneWeek5_3]} />
       </SceneContainer>
     {:else if $week == 6}
       <SceneContainer>

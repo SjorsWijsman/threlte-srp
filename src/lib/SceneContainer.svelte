@@ -3,9 +3,15 @@
   import { fade } from "svelte/transition";
 
   export let toggle = false;
+
+  export let background = "";
 </script>
 
-<div in:fade={{ duration: 500, delay: 500 }} out:fade={{ duration: 500 }}>
+<div
+  in:fade={{ duration: 500, delay: 500 }}
+  out:fade={{ duration: 500 }}
+  style:background
+>
   {#if toggle}
     <slot />
   {:else}
