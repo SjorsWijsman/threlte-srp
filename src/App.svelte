@@ -75,7 +75,9 @@
         <SceneToggle components={[SceneWeek5_1, SceneWeek5_2, SceneWeek5_3]} />
       </SceneContainer>
     {:else if $week == 6}
-      <SceneContainer>
+      <SceneContainer
+        background={"linear-gradient(to bottom, #b7eaff,#ccffff)"}
+      >
         <SceneWeek6 />
       </SceneContainer>
     {/if}
@@ -86,6 +88,7 @@
 <style>
   main {
     height: 100vh;
-    width: 100%;
+    width: 100vw;
+    overflow: hidden;
   }
 </style>

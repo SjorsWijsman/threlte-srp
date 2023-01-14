@@ -1,4 +1,5 @@
 import { writable } from "svelte/store";
+import { persistStore } from "$scripts/persist-store";
 
 const urlParams = new URLSearchParams(window.location.search);
 
@@ -18,3 +19,4 @@ export const week = writable(weekDefault ?? 0);
 export const scene = writable(sceneDefault ?? 0);
 
 export const gameState = writable("playing");
+export const highScore = persistStore("highscore", 0);

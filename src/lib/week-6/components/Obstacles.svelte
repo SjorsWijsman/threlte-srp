@@ -22,6 +22,11 @@
     obstacles = obstacles.slice(0, 5);
   }
 
+  export function resetObstacles() {
+    obstacles = [];
+    spawnCooldown = 1;
+  }
+
   useFrame((frame) => {
     // Calculate time since last frame
     let deltaTime = frame.clock.elapsedTime - previousTime;

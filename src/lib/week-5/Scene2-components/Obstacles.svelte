@@ -13,7 +13,7 @@
       { component: Obstacle, id: crypto.randomUUID() },
       ...obstacles,
     ];
-    // Remove any obstacles past the last 5, preserves memory
+    // Remove any obstacles past the last 5, prevent memory leak
     obstacles = obstacles.slice(0, 5);
   }
 
