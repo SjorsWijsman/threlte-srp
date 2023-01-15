@@ -6,7 +6,6 @@
   import { quadOut, quadIn } from "svelte/easing";
 
   import { gameState, highScore } from "$store";
-  import { isTouchDevice } from "$scripts/is-touch";
 
   export let score;
   export let camera;
@@ -23,12 +22,10 @@
     actions["walk"]?.play();
   });
 
-  // Or play them whenever you need
   export const startAnimation = (animation) => {
     $actions[animation]?.play();
   };
 
-  // Or play them whenever you need
   export const stopAnimation = (animation) => {
     $actions[animation]?.stop();
   };
@@ -104,7 +101,7 @@
 <svelte:body
   on:keydown={keyDownEvent}
   on:keyup={keyUpEvent}
-  on:click={() => isTouchDevice() ?? jump()}
+  on:click={() => jump()}
 />
 
 <!-- Dino -->
